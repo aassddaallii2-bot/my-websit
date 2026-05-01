@@ -1,120 +1,190 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة الاختبارات</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة الموقع</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo', sans-serif;
+}
 
-        body {
-            height: 100vh;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
+body{
+    display:flex;
+    height:100vh;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+}
 
-        .container {
-            text-align: center;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            width: 90%;
-            max-width: 500px;
-        }
+/* النافبار */
+.sidebar{
+    width:220px;
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
 
-        h1 {
-            margin-bottom: 10px;
-            font-size: 32px;
-        }
+.sidebar h2{
+    text-align:center;
+    margin-bottom:20px;
+}
 
-        p {
-            margin-bottom: 30px;
-            opacity: 0.8;
-        }
+.nav-btn{
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    text-align:center;
+    transition:0.3s;
+    background:rgba(255,255,255,0.1);
+}
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.nav-btn:hover{
+    background:#00c6ff;
+}
 
-        .btn {
-            padding: 15px;
-            border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.3s;
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
+/* المحتوى */
+.content{
+    flex:1;
+    padding:30px;
+    overflow:auto;
+}
 
-        .ai {
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-        }
+/* الأقسام */
+.section{
+    display:none;
+}
 
-        .ethics {
-            background: linear-gradient(45deg, #ff7e5f, #feb47b);
-        }
+.active{
+    display:block;
+}
 
-        .virus {
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-        }
+/* البطاقات */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    gap:20px;
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-        }
+.card{
+    background:rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+    cursor:pointer;
+    text-decoration:none;
+    color:white;
+}
 
-        footer {
-            margin-top: 25px;
-            font-size: 14px;
-            opacity: 0.6;
-        }
+.card:hover{
+    transform:translateY(-5px) scale(1.03);
+    background:rgba(255,255,255,0.2);
+}
 
-        @media (max-width: 500px) {
-            h1 {
-                font-size: 24px;
-            }
+.card h3{
+    margin-bottom:10px;
+}
 
-            .btn {
-                font-size: 16px;
-                padding: 12px;
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>📘 بوابة الاختبارات</h1>
-        <p>اختر المادة وابدأ اختبارك فوراً</p>
+<!-- النافبار -->
+<div class="sidebar">
+    <h2>📚 القائمة</h2>
 
-        <div class="buttons">
-            <a href="elctron.html" class="btn ethics">⚖️ اختبار أخلاقيات الحاسوب</a>
-            <a href="viros.html" class="btn virus">🦠 اختبار فيروسات الحاسوب</a>
+    <div class="nav-btn" onclick="showSection('about')">👤 التعريف</div>
+    <div class="nav-btn" onclick="showSection('quiz')">📝 الاختبارات</div>
+    <div class="nav-btn" onclick="showSection('other')">🌐 متنوعة</div>
+</div>
+
+<!-- المحتوى -->
+<div class="content">
+
+    <!-- القسم 1 -->
+    <div id="about" class="section active">
+        <h1>👤 الصفحة التعريفية</h1>
+        <br>
+
+        <div class="cards">
+            <a href="#" class="card">
+                <h3>📌 من أنا</h3>
+                <p>اضف معلوماتك لاحقاً</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>💼 مهاراتي</h3>
+                <p>اضفها لاحقاً</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>📞 تواصل معي</h3>
+                <p>صفحة تواصل</p>
+            </a>
         </div>
-
-        <footer>
-            جميع الحقوق محفوظة © 2026
-        </footer>
     </div>
+
+    <!-- القسم 2 -->
+    <div id="quiz" class="section">
+        <h1>📝 الاختبارات</h1>
+        <br>
+
+        <div class="cards">
+            <a href="elctron.html" class="card">
+                <h3>⚖️ أخلاقيات الحاسوب</h3>
+                <p>ابدأ الاختبار</p>
+            </a>
+
+            <a href="viros.html" class="card">
+                <h3>🦠 فيروسات الحاسوب</h3>
+                <p>ابدأ الاختبار</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- القسم 3 -->
+    <div id="other" class="section">
+        <h1>🌐 صفحات متنوعة</h1>
+        <br>
+
+        <div class="cards">
+            <a href="#" class="card">
+                <h3>📄 صفحة 1</h3>
+                <p>تطوير لاحق</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>📄 صفحة 2</h3>
+                <p>تطوير لاحق</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>📄 صفحة 3</h3>
+                <p>تطوير لاحق</p>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showSection(id){
+    document.querySelectorAll('.section').forEach(sec=>{
+        sec.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
